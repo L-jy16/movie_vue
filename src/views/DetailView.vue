@@ -15,9 +15,9 @@
     <main id="main">
         <DetailIntro v-if="movieBasic" :movieBasic="movieBasic" />
         <DetailInfo v-if="movieInfo" :movieInfo="movieInfo" />
-        <!-- <DetailKeyWord v-if="movieKeyWord" :movieBasic="movieBasic" />
-        <DetailReview v-if="movieReview" :movieBasic="movieBasic" />
-        <DetailCredits v-if="movieCredits" :movieBasic="movieBasic" /> -->
+        <DetailKeyWord v-if="movieKeyWord" :movieBasic="movieBasic" />
+        <!--    <DetailCredits v-if="movieCredits" :movieBasic="movieBasic" /> 
+        <DetailReview v-if="movieReview" :movieBasic="movieBasic" />-->
     </main>
 </template>
 
@@ -28,9 +28,9 @@ import axios from "axios";
 
 import DetailIntro from "../components/detail/DetailIntro.vue";
 import DetailInfo from "../components/detail/DetailInfo.vue";
-// import DetailKeyWord from "../components/detail/DetailKeyWord.vue";
-// import DetailReview from "../components/detail/DetailReview.vue";
+import DetailKeyWord from "../components/detail/DetailKeyWord.vue";
 // import DetailCredits from "../components/detail/DetailCredits.vue";
+// import DetailReview from "../components/detail/DetailReview.vue";
 
 export default {
     name: "MovieDetailPage",
@@ -38,17 +38,17 @@ export default {
     components: {
         DetailIntro,
         DetailInfo,
-        // DetailKeyWord,
-        // DetailReview,
+        DetailKeyWord,
         // DetailCredits
+        // DetailReview,
     },
 
     setup() {
         const movieBasic = ref(null);
         const movieInfo = ref(null);
-        // const movieKeyWord = ref(null);
-        // const movieReview = ref(null);
+        const movieKeyWord = ref(null);
         // const movieCredits = ref(null);
+        // const movieReview = ref(null);
 
         const route = useRoute();
 
@@ -66,17 +66,18 @@ export default {
                 movieInfo.value = resMovieInfo.data;
                 console.log(resMovieInfo.data);
 
-                // const resMovieKeyWord = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/keywords?language=${language}&api_key=${apiKey}`)
-                // movieKeyWord.value = resMovieKeyWord.data;
-                // console.log(resMovieKeyWord.data)
+                const resMovieKeyWord = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/keywords?language=${language}&api_key=${apiKey}`)
+                movieKeyWord.value = resMovieKeyWord.data;
+                console.log(resMovieKeyWord.data)
+
+                // const resMovieCreadits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=${language}&api_key=${apiKey}`)
+                // movieCredits.value = resMovieCreadits.data;
+                // console.log(resMovieCreadits.data)
 
                 // const resMovieReview = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?language=${language}&api_key=${apiKey}`)
                 // movieReview.value = resMovieReview.data;
                 // console.log(resMovieReview.data)
 
-                // const resMovieCreadits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=${language}&api_key=${apiKey}`)
-                // movieCredits.value = resMovieCreadits.data;
-                // console.log(resMovieCreadits.data)
             }
             catch (err) {
                 console.log(err)

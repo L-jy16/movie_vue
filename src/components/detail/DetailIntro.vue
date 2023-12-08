@@ -103,22 +103,28 @@ export default {
                 .vidoedeintro__desc {
                     font-size: 1.8rem;
                     margin-top: 10px;
-
+                    word-break: keep-all;
                 }
 
                 .vidoedeintro__date {
-                    margin-top: 20px;
-                    color: #d9d9d9;
+                    color: var(--black500);
+                    margin-top: 10px;
+                    word-break: keep-all;
+                    font-size: 1rem;
                 }
 
                 .vidoedeintro__review {
+                    color: var(--black500);
                     margin-top: 10px;
-                    color: #d9d9d9;
+                    word-break: keep-all;
+                    font-size: 1rem;
                 }
 
                 .vidoedeintro__runtime {
+                    color: var(--black500);
                     margin-top: 10px;
-                    color: #d9d9d9;
+                    word-break: keep-all;
+                    font-size: 1rem;
                 }
             }
 
@@ -126,71 +132,92 @@ export default {
     }
 }
 
-@media (max-width: 1000px) {
-    .deintro__video {
+@media (max-width: 900px) {
+    .detail__intro {
+        .deintro__cont {
+            .deintro__poster {}
 
+            .deintro__video {
 
-        .vidoedeintro__title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 15px 0;
-            border-bottom: 1px dashed var(--black500);
-        }
+                .vidoedeintro__title {
+                    font-size: 2.8rem;
+                }
 
-        .vidoedeintro__cont {
-            // padding: 25px 0;
+                .vidoedeintro__cont {
+                    // padding: 25px 0;
 
-            .vidoedeintro__desc {
-                font-size: 0.4rem;
-                margin-top: 5px;
+                    .vidoedeintro__desc {
+                        font-size: 1.6rem;
+                        margin-top: 5px;
 
-            }
+                    }
 
-            .vidoedeintro__date {
-                margin-top: 5px;
-            }
+                    .vidoedeintro__date {
+                        margin-top: 5px;
+                    }
 
-            .vidoedeintro__review {
-                margin-top: 5px;
-            }
+                    .vidoedeintro__review {
+                        margin-top: 5px;
+                    }
 
-            .vidoedeintro__runtime {
-                margin-top: 5px;
+                    .vidoedeintro__runtime {
+                        margin-top: 5px;
+                    }
+                }
             }
         }
     }
 }
 
-@media (max-width: 800px) {
-    .deintro__video {
+@media (max-width: 670px) {
+    .detail__intro {
 
+        .deintro__cont {
+            justify-content: center;
+            flex-direction: column;
 
-        .vidoedeintro__title {
-            font-size: 1rem;
-            font-weight: bold;
-            padding: 15px 0;
-            border-bottom: 1px dashed var(--black500);
-        }
+            .deintro__poster {
+                width: 100%;
+                align-items: center;
+                text-align: center;
 
-        .vidoedeintro__cont {
-            // padding: 25px 0;
+                a {
 
-            .vidoedeintro__desc {
-                font-size: 0.4rem;
-                margin-top: 5px;
-
+                    img {
+                        width: 40%;
+                    }
+                }
             }
 
-            .vidoedeintro__date {
-                margin-top: 8px;
-            }
+            .deintro__video {
+                width: 100%;
+                text-align: center;
 
-            .vidoedeintro__review {
-                margin-top: 5px;
-            }
+                .vidoedeintro__title {
+                    font-size: 2rem;
+                    padding: 18px 0;
+                }
 
-            .vidoedeintro__runtime {
-                margin-top: 5px;
+                .vidoedeintro__cont {
+                    // padding: 25px 0;
+                    padding: 15px 0;
+
+                    .vidoedeintro__desc {
+                        font-size: 1.3rem;
+                    }
+
+                    .vidoedeintro__date {
+                        font-size: 0.8rem;
+                    }
+
+                    .vidoedeintro__review {
+                        font-size: 0.8rem;
+                    }
+
+                    .vidoedeintro__runtime {
+                        font-size: 0.8rem;
+                    }
+                }
             }
         }
     }
