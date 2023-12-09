@@ -28,7 +28,7 @@ export default {
     margin-top: 10px;
 
     .keyword__wrap {
-        padding: 20px;
+        // padding: 20px;
         width: 100%;
 
         .keyword__type {
@@ -37,7 +37,7 @@ export default {
             justify-content: flex-start;
 
             .keyword__name {
-                margin: 10px;
+                margin: 0 10px 10px 0;
                 padding: 5px 10px;
                 border: 1px solid var(--black200);
                 border-radius: 5px;
@@ -47,20 +47,48 @@ export default {
                     color: var(--white);
                     display: inline-block;
                     width: 100%;
-                    font-size: 1.2rem;
+                    font-size: 1rem;
                 }
             }
         }
     }
 }
 
-@media (max-width:890px) {
+@media (max-width:1450px) {
     .detail__keyward {
         .keyword__wrap {
             .keyword__type {
                 .keyword__name {
                     span {
-                        font-size: 1rem;
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1130px) {
+    .detail__keyward {
+        .keyword__wrap {
+            .keyword__type {
+                .keyword__name {
+                    span {
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:940px) {
+    .detail__keyward {
+        .keyword__wrap {
+            .keyword__type {
+                .keyword__name {
+                    span {
+                        font-size: 0.6rem;
                     }
                 }
             }
@@ -72,10 +100,10 @@ export default {
     .detail__keyward {
         .keyword__wrap {
             .keyword__type {
-                margin: 10px 5px;
+                margin: 0 10px 5px 0;
                 .keyword__name {
                     span {
-                        font-size: 1rem;
+                        font-size: 0.8rem;
                     }
                 }
             }

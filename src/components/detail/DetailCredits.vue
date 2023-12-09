@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
 .detail__creadits {
-    padding: 20px;
+    // padding: 20px;
 
     h3 {
         font-size: 1.8rem;

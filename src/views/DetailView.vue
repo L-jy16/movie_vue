@@ -14,10 +14,18 @@
     </header>
     <main id="main">
         <DetailIntro v-if="movieBasic" :movieBasic="movieBasic" />
-        <DetailInfo v-if="movieInfo" :movieInfo="movieInfo" />
-        <DetailKeyWord v-if="movieKeyWord" :movieKeyWord="movieKeyWord" />
-        <DetailCredits v-if="movieCredits" :movieCredits="movieCredits" /> 
-        <!--    <DetailReview v-if="movieReview" :movieReview="movieReview" />-->
+        <div class="Movie__Detail container">
+            <div class="movie__detail__info">
+                <DetailInfo class="detailinfo" v-if="movieInfo" :movieInfo="movieInfo" />
+                <DetailKeyWord class="detailkeyword" v-if="movieKeyWord" :movieKeyWord="movieKeyWord" />
+            </div>
+            <div class="movie__detail__video">
+                <img :src="'https://image.tmdb.org/t/p/w500' + movieBasic.backdrop_path" alt="{{ movieBasic.title }}">
+                <!-- <DetailVideo class="detailvideo" v-if="movieVideo" :movieVideo="movieVideo" /> -->
+            </div>
+        </div>
+        <DetailCredits v-if="movieCredits" :movieCredits="movieCredits" />
+        <!-- <DetailReview v-if="movieReview" :movieReview="movieReview" /> -->
     </main>
 </template>
 
@@ -27,6 +35,7 @@ import { useRoute } from "vue-router"
 import axios from "axios";
 
 import DetailIntro from "../components/detail/DetailIntro.vue";
+// import DetailVideo from "../components/detail/DetailVideo.vue";
 import DetailInfo from "../components/detail/DetailInfo.vue";
 import DetailKeyWord from "../components/detail/DetailKeyWord.vue";
 import DetailCredits from "../components/detail/DetailCredits.vue";
@@ -37,14 +46,16 @@ export default {
 
     components: {
         DetailIntro,
+        // DetailVideo,
         DetailInfo,
         DetailKeyWord,
-        DetailCredits
+        DetailCredits,
         // DetailReview,
     },
 
     setup() {
         const movieBasic = ref(null);
+        // const movieVideo = ref(null);
         const movieInfo = ref(null);
         const movieKeyWord = ref(null);
         const movieCredits = ref(null);
@@ -60,24 +71,27 @@ export default {
             try {
                 const resMovieBasic = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=${language}&api_key=${apiKey}`)
                 movieBasic.value = resMovieBasic.data;
-                // console.log(resMovieBasic.data);
+                console.log(resMovieBasic.data);
+
+                // const resMovieVideo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`)
+                // movieVideo.value = resMovieVideo.data;
+                // console.log(resMovieVideo.data)
 
                 const resMovieInfo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=${language}&api_key=${apiKey}`)
                 movieInfo.value = resMovieInfo.data;
-                console.log(resMovieInfo.data);
+                // console.log(resMovieInfo.data);
 
                 const resMovieKeyWord = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/keywords?language=${language}&api_key=${apiKey}`)
                 movieKeyWord.value = resMovieKeyWord.data;
-                console.log(resMovieKeyWord.data)
+                // console.log(resMovieKeyWord.data)
 
                 const resMovieCreadits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=${language}&api_key=${apiKey}`)
                 movieCredits.value = resMovieCreadits.data;
-                console.log(resMovieCreadits.data)
+                // console.log(resMovieCreadits.data)
 
                 // const resMovieReview = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?language=${language}&api_key=${apiKey}`)
                 // movieReview.value = resMovieReview.data;
-                // console.log(resMovieReview.data)
-
+                // // console.log(resMovieReview.data)
             }
             catch (err) {
                 console.log(err)
@@ -85,11 +99,51 @@ export default {
         });
         return {
             movieBasic,
+            // movieVideo,
             movieInfo,
             movieKeyWord,
-            movieCredits
+            movieCredits,
             // movieReview,
         }
     }
 }
 </script>
+
+<style lang="scss">
+.Movie__Detail {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 20px;
+
+    .movie__detail__video {
+        width: 49%;
+        img {
+            margin-top: 10px;
+        }
+    }
+
+    .movie__detail__info {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 800px) {
+    .Movie__Detail {
+        display: block;
+
+        .movie__detail__video {
+            width: 100%;
+            display: none;
+        }
+
+        .movie__detail__info {
+            width: 100%;
+        }
+    }
+}
+</style>
