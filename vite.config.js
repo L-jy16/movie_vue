@@ -16,3 +16,9 @@ export default defineConfig({
     }
   }
 })
+// export default {
+//   root: "src",
+//   build: {
+//     outDir: "../public",
+//   }
+// }
