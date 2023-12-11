@@ -4,8 +4,9 @@
             <h3>등장 인물</h3>
             <ul class="creadit__wrap scroll_style">
                 <li class="creadit__member" v-for="creadit in movieCredits.cast" :key="creadit.id">
-                    <img :src="'https://image.tmdb.org/t/p/w500' + creadit.profile_path" alt={{creadit.name}}>
-                    <span>{{ creadit.name }}</span>
+                    <img v-if="creadit.profile_path" :src="'https://image.tmdb.org/t/p/w500' + creadit.profile_path"
+                        alt={{creadit.name}}>
+                    <span v-if="creadit.profile_path">{{ creadit.name }}</span>
                 </li>
             </ul>
         </div>
@@ -37,9 +38,9 @@ export default {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
-        max-width: 100%; 
+        max-width: 100%;
         margin-bottom: -20px;
-        
+
 
         .creadit__member {
             // width: %;
@@ -47,6 +48,7 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: center;
+
             img {
                 width: auto;
                 height: 200px;
@@ -59,29 +61,30 @@ export default {
         }
     }
 }
-@media (max-width: 800px){
+
+@media (max-width: 800px) {
     .detail__creadits {
 
-    h3 {
-        font-size: 1.5rem;
-    }
+        h3 {
+            font-size: 1.5rem;
+        }
 
-    .creadit__wrap {   
-        .creadit__member {
-            img {
-                width: auto;
-                height: 150px;
-                object-position: center;
-            }
+        .creadit__wrap {
+            .creadit__member {
+                img {
+                    width: auto;
+                    height: 150px;
+                    object-position: center;
+                }
 
-            span {
-                text-align: center;
-                word-break: keep-all;
-                margin-top: 10px;
-                font-size: 0.8rme;
+                span {
+                    text-align: center;
+                    word-break: keep-all;
+                    margin-top: 10px;
+                    font-size: 0.8rme;
+                }
             }
         }
     }
-}
 }
 </style>

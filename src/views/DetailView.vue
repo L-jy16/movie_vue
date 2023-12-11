@@ -20,8 +20,7 @@
                 <DetailKeyWord class="detailkeyword" v-if="movieKeyWord" :movieKeyWord="movieKeyWord" />
             </div>
             <div class="movie__detail__video">
-                <img :src="'https://image.tmdb.org/t/p/w500' + movieBasic.backdrop_path" alt="{{ movieBasic.title }}">
-                <!-- <DetailVideo class="detailvideo" v-if="movieVideo" :movieVideo="movieVideo" /> -->
+                <DetailVideo class="detailvideo" v-if="movieVideo" :movieVideo="movieVideo" :movieBasic="movieBasic" />
             </div>
         </div>
         <DetailCredits v-if="movieCredits" :movieCredits="movieCredits" />
@@ -35,7 +34,7 @@ import { useRoute } from "vue-router"
 import axios from "axios";
 
 import DetailIntro from "../components/detail/DetailIntro.vue";
-// import DetailVideo from "../components/detail/DetailVideo.vue";
+import DetailVideo from "../components/detail/DetailVideo.vue";
 import DetailInfo from "../components/detail/DetailInfo.vue";
 import DetailKeyWord from "../components/detail/DetailKeyWord.vue";
 import DetailCredits from "../components/detail/DetailCredits.vue";
@@ -46,7 +45,7 @@ export default {
 
     components: {
         DetailIntro,
-        // DetailVideo,
+        DetailVideo,
         DetailInfo,
         DetailKeyWord,
         DetailCredits,
@@ -55,7 +54,7 @@ export default {
 
     setup() {
         const movieBasic = ref(null);
-        // const movieVideo = ref(null);
+        const movieVideo = ref(null);
         const movieInfo = ref(null);
         const movieKeyWord = ref(null);
         const movieCredits = ref(null);
@@ -73,8 +72,8 @@ export default {
                 movieBasic.value = resMovieBasic.data;
                 console.log(resMovieBasic.data);
 
-                // const resMovieVideo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`)
-                // movieVideo.value = resMovieVideo.data;
+                const resMovieVideo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`)
+                movieVideo.value = resMovieVideo.data;
                 // console.log(resMovieVideo.data)
 
                 const resMovieInfo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?language=${language}&api_key=${apiKey}`)
@@ -99,7 +98,7 @@ export default {
         });
         return {
             movieBasic,
-            // movieVideo,
+            movieVideo,
             movieInfo,
             movieKeyWord,
             movieCredits,
@@ -120,6 +119,8 @@ export default {
 
     .movie__detail__video {
         width: 49%;
+        // height: 500px;
+
         img {
             margin-top: 10px;
         }
@@ -138,7 +139,7 @@ export default {
 
         .movie__detail__video {
             width: 100%;
-            display: none;
+            // display: none;
         }
 
         .movie__detail__info {
