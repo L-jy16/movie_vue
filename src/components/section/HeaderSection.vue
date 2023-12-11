@@ -257,5 +257,90 @@
             }
         }
     }
+
+    .header__intro {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-position: center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+
+        &::after {
+            content: '';
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            z-index: 1;
+        }
+
+
+
+
+        .header__cont {
+            position: relative;
+            flex-direction: column;
+
+
+            .header__poster {
+                width: 50%;
+            }
+
+            .header__video {
+                width: 100%;
+
+
+
+
+                .video__title {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    padding: 25px 0;
+                    border-bottom: 1px dashed var(--black500);
+                }
+
+                .vidoe__cont {
+                    padding: 25px 0;
+
+                    .video__desc {
+                        font-size: 0.8rem;
+                        margin-top: 10px;
+
+                    }
+
+                    .date {
+                        margin-top: 10px;
+                    }
+
+                    .review {
+                        margin-top: 10px;
+                    }
+
+                    .video__Characters {
+                        padding: 20px 0;
+
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+
+                            li {
+                                width: 18%;
+                                // background-color: #fff;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
 }
 </style>
