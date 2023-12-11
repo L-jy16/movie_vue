@@ -228,5 +228,34 @@
     }
 }
 
-@media (max-width: 800px) {}
+@media (max-width: 800px) {
+    .header__title {
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--red);
+        }
+
+        nav {
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+
+                li {
+                    margin-left: 10px;
+
+                    a {
+                        font-size: 0.8rem;
+                        color: var(--black500);
+
+                        &:hover {
+                            color: var(--white);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 </style>

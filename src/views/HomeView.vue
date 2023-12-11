@@ -159,7 +159,6 @@ export default {
     justify-content: flex-end;
     position: relative;
 
-
     input {
       padding: 1rem 2rem;
       width: 100%;
@@ -167,6 +166,7 @@ export default {
       color: var(--white);
       border: 1px solid var(--black500);
       border-radius: 50px;
+
     }
 
     button {
@@ -216,6 +216,142 @@ export default {
       width: 24%;
       margin-bottom: 20px;
 
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .movie__inner {
+    .movie__cont {
+      .movie {
+        width: 32%;
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .movie__inner {
+
+    .movie__search {
+
+
+      input {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+
+    .movie__tag {
+
+      ul {
+        li {
+          a {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .movie__inner {
+
+    .movie__search {
+      width: 100%;
+      margin: 20px 15px 10px 15px;
+
+      input {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
+
+    .movie__tag {
+      width: 100%;
+      ul {
+        li {
+          a {
+            font-size: 1rem;
+            margin: 10px 10px 20px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 660px) {
+  .movie__inner {
+
+    .movie__search {
+      width: 100%;
+      margin: 20px 15px 10px 15px;
+
+      input {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+    }
+
+    .movie__tag {
+      width: 100%;
+      ul {
+        li {
+          a {
+            font-size: 1rem;
+            margin: 10px 10px 20px 10px;
+          }
+        }
+      }
+    }
+    .movie__cont {
+      .movie {
+        width: 49%;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .movie__inner {
+
+    .movie__search {
+
+      input {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+
+    .movie__tag {
+      width: 100%;
+      ul {
+        li {
+          a {
+            font-size: 0.9rem;
+            padding: 0.3rem 0.5rem;
+          }
+        }
+      }
+    }
+    .movie__cont {
+      .movie {
+        width: 98%;
+      }
     }
   }
 }
