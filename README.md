@@ -1,35 +1,15 @@
-# .
+# Movie Site 만들기
+tmdb API를 이용하여 영화 사이트를 만들었습니다.<br />
+<img width="500" src="./src/assets/img/moviemainpage-min.png" />
 
-This template should help get you started developing with Vue 3 in Vite.
+## 사이트 바로가기
+사이트 바로가기 : [Movie](https://lee-movie.netlify.app/)
 
-## Recommended IDE Setup
+## 사용 스택
+<img alt="Vue.js" src="https://img.shields.io/badge/Vue.js-4FC08D?logo=Vue.js&logoColor=white"> <img alt="postman" src="https://img.shields.io/badge/postman-0769AD?logo=postman&logoColor=white"> <img alt="sass" src="https://img.shields.io/badge/sass-00C7B7?logo=sass&logoColor=white"> <img alt="TMDB API" src="https://img.shields.io/badge/TMDB API-3178C6?logo=TMDB API&logoColor=white">
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## 프로젝트 소개
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## 주요 기능
